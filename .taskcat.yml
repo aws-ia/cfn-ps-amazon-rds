@@ -1,5 +1,5 @@
 project:
-  name: quickstart-amazon-rds
+  name: cfn-ps-amazon-rds
   owner: quickstart-eng@amazon.com
   s3_regional_buckets: true
   package_lambda: false
