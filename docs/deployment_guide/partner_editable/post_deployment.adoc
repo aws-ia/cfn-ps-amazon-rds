@@ -1,3 +1,68 @@
 // Include any postdeployment steps here, such as steps necessary to test that the deployment was successful. If there are no postdeployment steps, leave this file empty.
 
 == Postdeployment steps
+
+NOTE: The following optional test procedure assumes that you have a bastion host with TCP forwarding enabled.
+
+. Download the latest version of https://www.pgadmin.org/download/[the database client] and install it on the workstation that will connect to the database cluster.
+. From the AWS CloudFormation console, on the *Outputs* tab for `BastionStack`, note the value for `EIP1`, as shown in <<outputs1>>.
++
+[#outputs1]
+.IP address for Linux bastion host
+image::../docs/deployment_guide/images/outputs1.png[AWS CloudFormation stack BastionStack Outputs tab]
++
+. From the AWS CloudFormation console, on the *Outputs* tab for `RDSStack`, note the values of `DBName`, `DBUsername`, `RDSEndpointAddress`, and `RDSEndpointPort` as shown in <<outputs2>>.
++
+[#outputs2]
+.{service-short-name} stack outputs
+image::../docs/deployment_guide/images/outputs2.png[AWS CloudFormation stack RDSStack Outputs tab]
++
+. Launch {database-client} on your workstation, enter a new password, and choose *OK* to continue.
++
+[#pgadmin1]
+.Set the password for {database-client}
+image::../docs/deployment_guide/images/pgadmin1.png[{database-client}: set password]
++
+In {database-client}, to create a new server connection, right-click *Servers* to open the context menu, and then choose *Register > Server...*.
++
+[#pgadmin2]
+.Register a new server connection in {database-client}
+image::../docs/deployment_guide/images/pgadmin2.png[{database-client}: register server connection]
++
+. To connect to your database, choose the *General* tab, and provide a descriptive name.
++
+[#pgadmin3]
+.General settings for {database-client} server connection setup
+image::../docs/deployment_guide/images/pgadmin3.png[{database-client}: server general settings]
++
+. Choose the *Connection* tab and provide the following values, as shown in <<pgadmin4>>:
++
+TIP: You can find most of the required values on the *Outputs* tab of the `RDSStack`, as shown in <<outputs2>>.
++
+.. In the *Host name/address* field, enter the value for `<RDSEndpointAddress>`.
+.. In the *Maintenance database* field, enter the value for `<DBName>`.
+.. In the *Username* field, enter the value for `<DBUsername>`.
+.. In the *Password* field, enter the value of `<DBPassword>`, which you entered during stack creation.
++
+[#pgadmin4]
+.Connection settings for the {partner-product-short-name} database cluster
+image::../docs/deployment_guide/images/pgadmin4.png[{database-client}: server connection settings]
++
+. Choose the *SSH Tunnel* tab and provide the following values, as shown in <<pgadmin5>>:
+.. Enable the *Use SSH tunneling* toggle switch.
+.. In the *Tunnel host* field, enter `<EIP1>` from the *Outputs* tab of the `BastionStack`, as shown in <<outputs1>>.
+.. In the *Username* field, enter `ec2-user`.
+.. In the *Authentication* field, select `Identity file`.
+.. In the *Identity file* field, select your Amazon EC2 key pair private key file, such as `keypair.pem`.
++
+[#pgadmin5]
+.SSH tunnel settings for the {partner-product-short-name} database cluster
+image::../docs/deployment_guide/images/pgadmin5.png[{database-client}: SSH tunnel settings]
++
+. Choose *Save* to store the connection information and connect to your new {partner-product-short-name} instance.
++
+After connecting successfully, you can access the {database-client} dashboard, as shown in <<pgadmin6>>.
++
+[#pgadmin6]
+.Confirmation that the {partner-product-short-name} database cluster is accepting connections
+image::../docs/deployment_guide/images/pgadmin6.png[{database-client}: dashboard]

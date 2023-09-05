@@ -1,17 +1,18 @@
-:partner-solution-project-name: partner-solution-repo-name
-:partner-solution-github-org: aws-quickstart
-:partner-product-name: Full Product Name
-:partner-product-short-name: Product Name
-:partner-company-name: Example Company Name, Ltd.
-:doc-month: January
+:partner-solution-project-name: cfn-ps-amazon-rds
+:partner-solution-github-org: aws-ia
+//:database-engine: PostgreSQL
+//:service-name: Amazon Relational Database Service
+//:service-short-name: Amazon RDS
+:partner-product-name: Amazon RDS
+:partner-product-short-name: Amazon RDS
+//:database-client: PgAdmin 4
+// :partner-company-name: Example Company Name, Ltd.
+:doc-month: June
 :doc-year: 2023
-:partner-contributors: John Smith, {partner-company-name}
+// :partner-contributors: John Smith, {partner-company-name}
 // :other-contributors: Akua Mansa, Trek10
-:aws-contributors: Janine Singh, AWS IoT Partner team
-:aws-ia-contributors: Toni Jones, AWS Integration & Automation team
-:deployment_time: 15 minutes
+:aws-contributors: Sudhir Gupta, AWS Databases & Analytics team, and Battulga Purevragchaa, AWS ISV Workload Migration program
+:aws-ia-contributors: Troy Lindsay, Andrew Gargan, Vinod Shukla, and Dave May, AWS Integration & Automation team
+:deployment_time: 30 minutes
 :default_deployment_region: us-east-1
 // :private_repo:
-
-
-// For instructions on creating this deployment guide, refer to "Build your AWS Partner Solution documentation" (https://aws-ia-us-west-2.s3.us-west-2.amazonaws.com/docs/content/index.html#/).

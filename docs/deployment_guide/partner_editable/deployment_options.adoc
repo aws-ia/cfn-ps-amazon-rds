@@ -2,7 +2,13 @@
 
 This Partner Solution provides the following deployment options:
 
-* https://qs_launch_permalink[Deploy {partner-product-short-name} into a new VPC^]. This option builds a new AWS environment that consists of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys {partner-product-short-name} into this new VPC.
-* https://qs_launch_permalink[Deploy {partner-product-short-name} into an existing VPC^]. This option provisions {partner-product-short-name} in your existing AWS infrastructure.
+* https://fwd.aws/jm4dy?[Deploy Amazon RDS for PostgreSQL into a new VPC]. This option builds a new AWS environment that consists of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys Amazon RDS for PostgreSQL into this new VPC.
+* https://fwd.aws/verbW?[Deploy Amazon RDS for PostgreSQL into an existing VPC]. This option provisions Amazon RDS for PostgreSQL in your existing AWS infrastructure.
+* https://fwd.aws/kPKED?[Deploy Amazon RDS for MySQL into a new VPC]. This option builds a new AWS environment that consists of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys Amazon RDS for MySQL into this new VPC.
+* https://fwd.aws/J3JWJ?[Deploy Amazon RDS for MySQL into an existing VPC]. This option provisions Amazon RDS for MySQL in your existing AWS infrastructure.
+* https://fwd.aws/WzdzW?[Deploy Amazon RDS for Microsoft SQL Server into a new VPC]. This option builds a new AWS environment that consists of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys Amazon RDS for Microsoft SQL into this new VPC.
+* https://fwd.aws/qRJ7y?[Deploy Amazon RDS for Microsoft SQL Server into an existing VPC]. This option provisions Amazon RDS for Microsoft SQL in your existing AWS infrastructure.
+* https://fwd.aws/79NKd?[Deploy Amazon RDS for MariaDB into a new VPC]. This option builds a new AWS environment that consists of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys Amazon RDS for MariaDB into this new VPC.
+* https://fwd.aws/nk3qz?[Deploy Amazon RDS for MariaDB into an existing VPC]. This option provisions Amazon RDS for MariaDB in your existing AWS infrastructure.
 
 This Partner Solution provides separate templates for these options. It also lets you configure Classless Inter-Domain Routing (CIDR) blocks, instance types, and {partner-product-short-name} settings.
