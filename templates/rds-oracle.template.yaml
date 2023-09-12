@@ -944,6 +944,13 @@ Resources:
               - Ref: DBArchitecture
   RDSORCL:
     Type: AWS::RDS::DBInstance
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - ERDSDBInstancePubliclyAccessible
+          ignore_reasons:
+            - ERDSDBInstancePubliclyAccessible: PubliclyAccessible is configurable.
     DeletionPolicy: Snapshot
     UpdateReplacePolicy: Snapshot
     Properties:

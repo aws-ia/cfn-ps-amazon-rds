@@ -887,6 +887,13 @@ Resources:
         innodb_print_all_deadlocks: 1
   MAZDBI:
     Type: AWS::RDS::DBInstance
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - ERDSDBInstancePubliclyAccessible
+          ignore_reasons:
+            - ERDSDBInstancePubliclyAccessible: PubliclyAccessible is configurable.
     Condition: isDBInstance
     DeletionPolicy: Snapshot
     UpdateReplacePolicy: Snapshot
