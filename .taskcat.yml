@@ -1,33 +1,86 @@
 project:
-  name: cfn-sample-template
-  owner: quickstart@amazon.com
+  name: cfn-ps-amazon-rds
+  owner: quickstart-eng@amazon.com
+  s3_regional_buckets: true
   package_lambda: false
   regions:
-  - ap-northeast-1
-  - ap-northeast-2
-  - ap-southeast-1
-  - ap-southeast-2
-  - eu-central-1
-  - eu-west-1
-  - sa-east-1
-  - us-east-1
-  - us-west-1
-  - us-west-2
-tests:
-  sample:
-    parameters:
-      Param1: 'Inputs to Stack'
-      # Examples: of other taskcat dynamic input parameters for more into see http://taskcat.io
-      #
-      #      AvailabilityZones: $[taskcat_genaz_3]
-      #      ByteValue: 1
-      #      PasswordA: $[taskcat_genpass_8A]
-      #      PasswordB: $[taskcat_genpass_32S]
-      #      RandomNumber: $[taskcat_random-numbers]
-      #      RandomString: $[taskcat_random-string]
-      #      StackName: TestStack
-      #      UUID: $[taskcat_genuuid]
-      #
-    regions:
+    - af-south-1
+    - ap-east-1
+    - ap-northeast-1
+    - ap-northeast-2
+    - ap-northeast-3
+    - ap-south-1
+    - ap-south-2
+    - ap-southeast-1
+    - ap-southeast-2
+    - ap-southeast-3
+    - ca-central-1
+    - eu-central-1
+    - eu-central-2
+    - eu-north-1
+    - eu-south-1
+    - eu-south-2
+    - eu-west-1
+    - eu-west-2
+    - eu-west-3
+    - me-central-1
+    - me-south-1
+    - sa-east-1
+    - us-east-1
     - us-east-2
-    template: templates/another-workload.template.yaml
+    - us-west-1
+    - us-west-2
+    - us-gov-east-1
+    - us-gov-west-1
+    - cn-north-1
+    - cn-northwest-1
+tests:
+  rds-mysql:
+    parameters:
+      AvailabilityZones: $[taskcat_genaz_3]
+      DBMasterUserPassword: $[taskcat_genpass_128A]
+      EnableBastion: 'false'
+      DBExportLogToCloudwatch: 'error'
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      StorageIOPS: 1000
+    template: templates/rds-mysql-main.template.yaml
+    regions:
+      - eu-west-1
+  rds-postgres:
+    parameters:
+      AvailabilityZones: $[taskcat_genaz_3]
+      DBMasterUserPassword: $[taskcat_genpass_128A]
+      DBExportLogToCloudwatch: 'error'
+      EnableBastion: 'false'
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      StorageIOPS: 1000
+    template: templates/rds-postgres-main.template.yaml
+    regions:
+      - us-west-2
+  rds-sqlserver:
+    parameters:
+      AvailabilityZones: $[taskcat_genaz_3]
+      DBMasterUserPassword: $[taskcat_genpass_128A]
+      DBExportLogToCloudwatch: 'error'
+      EnableBastion: 'false'
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      StorageIOPS: 1000
+    template: templates/rds-sqlserver-main.template.yaml
+    regions:
+      - us-east-1
+  rds-mariadb:
+    parameters:
+      AvailabilityZones: $[taskcat_genaz_3]
+      DBMasterUserPassword: $[taskcat_genpass_128A]
+      DBExportLogToCloudwatch: 'error'
+      DBInstanceClass: db.m6gd.large
+      EnableBastion: 'false'
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      StorageIOPS: 1000
+    template: templates/rds-mariadb-main.template.yaml
+    regions:
+      - eu-west-2
