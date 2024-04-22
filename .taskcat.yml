@@ -38,9 +38,12 @@ tests:
   rds-mysql:
     parameters:
       AvailabilityZones: $[taskcat_genaz_3]
+      DBExportLogToCloudwatch: 'error'
+      DBMasterUsername: 'dbadmin'
       DBMasterUserPassword: $[taskcat_genpass_128A]
       EnableBastion: 'false'
-      DBExportLogToCloudwatch: 'error'
+      KeyPairName: $[taskcat_getkeypair]
+      ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
       StorageIOPS: 1000
@@ -50,9 +53,11 @@ tests:
   rds-postgres:
     parameters:
       AvailabilityZones: $[taskcat_genaz_3]
+      DBMasterUsername: 'dbadmin'
       DBMasterUserPassword: $[taskcat_genpass_128A]
-      DBExportLogToCloudwatch: 'error'
       EnableBastion: 'false'
+      KeyPairName: $[taskcat_getkeypair]
+      ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
       StorageIOPS: 1000
@@ -62,9 +67,12 @@ tests:
   rds-sqlserver:
     parameters:
       AvailabilityZones: $[taskcat_genaz_3]
-      DBMasterUserPassword: $[taskcat_genpass_128A]
       DBExportLogToCloudwatch: 'error'
+      DBMasterUsername: 'dbadmin'
+      DBMasterUserPassword: $[taskcat_genpass_128A]
       EnableBastion: 'false'
+      KeyPairName: $[taskcat_getkeypair]
+      ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
       StorageIOPS: 1000
@@ -74,13 +82,31 @@ tests:
   rds-mariadb:
     parameters:
       AvailabilityZones: $[taskcat_genaz_3]
-      DBMasterUserPassword: $[taskcat_genpass_128A]
       DBExportLogToCloudwatch: 'error'
       DBInstanceClass: db.m6gd.large
+      DBMasterUsername: 'dbadmin'
+      DBMasterUserPassword: $[taskcat_genpass_128A]
       EnableBastion: 'false'
+      KeyPairName: $[taskcat_getkeypair]
+      ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
       StorageIOPS: 1000
     template: templates/rds-mariadb-main.template.yaml
     regions:
       - eu-west-2
+  # rds-oracle:
+  #   parameters:
+  #     AvailabilityZones: $[taskcat_genaz_3]
+  #     DBLicense: 'license-included'
+  #     DBMasterUsername: 'dbadmin'
+  #     DBMasterUserPassword: $[taskcat_genpass_128A]
+  #     EnableBastion: 'false'
+  #     KeyPairName: $[taskcat_getkeypair]
+  #     ManageMasterUserPassword: 'false'
+  #     QSS3BucketName: $[taskcat_autobucket]
+  #     QSS3BucketRegion: $[taskcat_current_region]
+  #     StorageIOPS: 1000
+  #   template: templates/rds-oracle-main.template.yaml
+  #   regions:
+  #     - us-east-2

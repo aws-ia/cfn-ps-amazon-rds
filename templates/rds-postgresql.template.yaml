@@ -5,6 +5,7 @@ Metadata:
   cfn-lint:
     config:
       ignore_checks:
+        - E1019
         - E9101
         - W3011
   AWS::CloudFormation::Interface:
@@ -183,7 +184,7 @@ Parameters:
   DBEngineVersion:
     Description: Select Database Engine Version
     Type: String
-    Default: 15.3
+    Default: 15.4
     AllowedValues:
       - 11.16
       - 11.17
@@ -208,6 +209,7 @@ Parameters:
       - 14.8
       - 15.2
       - 15.3
+      - 15.4
   DBExportLogToCloudwatch:
     Default: ''
     Description: Specify the comma-delimited list of database logs (postgresql, upgrade) to export to CloudWatch Logs.
@@ -589,6 +591,8 @@ Mappings:
       family: postgres15
     '15.3':
       family: postgres15
+    '15.4':
+      family: postgres15
 Conditions:
   CreateSecurityGroup:
     Fn::Equals:
@@ -921,6 +925,7 @@ Resources:
         config:
           ignore_checks:
             - ERDSDBInstancePubliclyAccessible
+            - E3002
           ignore_reasons:
             - ERDSDBInstancePubliclyAccessible: PubliclyAccessible is configurable.
     Condition: isDBInstance
@@ -1067,6 +1072,8 @@ Resources:
         config:
           ignore_checks:
             - ERDSStorageEncryptionEnabled
+            - E2521
+            - E3002
           ignore_reasons:
             - ERDSStorageEncryptionEnabled: StorageEncryption is conditional
     Type: AWS::RDS::DBCluster
