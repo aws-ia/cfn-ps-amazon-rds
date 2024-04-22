@@ -42,6 +42,7 @@ tests:
       DBMasterUsername: 'dbadmin'
       DBMasterUserPassword: $[taskcat_genpass_128A]
       EnableBastion: 'false'
+      KeyPairName: $[taskcat_getkeypair]
       ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
@@ -55,6 +56,7 @@ tests:
       DBMasterUsername: 'dbadmin'
       DBMasterUserPassword: $[taskcat_genpass_128A]
       EnableBastion: 'false'
+      KeyPairName: $[taskcat_getkeypair]
       ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
@@ -69,6 +71,7 @@ tests:
       DBMasterUsername: 'dbadmin'
       DBMasterUserPassword: $[taskcat_genpass_128A]
       EnableBastion: 'false'
+      KeyPairName: $[taskcat_getkeypair]
       ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
@@ -84,6 +87,7 @@ tests:
       DBMasterUsername: 'dbadmin'
       DBMasterUserPassword: $[taskcat_genpass_128A]
       EnableBastion: 'false'
+      KeyPairName: $[taskcat_getkeypair]
       ManageMasterUserPassword: 'false'
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
@@ -97,6 +101,8 @@ tests:
   #     DBLicense: 'license-included'
   #     DBMasterUsername: 'dbadmin'
   #     DBMasterUserPassword: $[taskcat_genpass_128A]
+  #     EnableBastion: 'false'
+  #     KeyPairName: $[taskcat_getkeypair]
   #     ManageMasterUserPassword: 'false'
   #     QSS3BucketName: $[taskcat_autobucket]
   #     QSS3BucketRegion: $[taskcat_current_region]
