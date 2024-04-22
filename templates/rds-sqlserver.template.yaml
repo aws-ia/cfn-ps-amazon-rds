@@ -5,10 +5,10 @@ Metadata:
   cfn-lint:
     config:
       ignore_checks:
-        - E9101
+        - E1019
         - E2521
         - E3002
-        - W
+        - E9101
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:

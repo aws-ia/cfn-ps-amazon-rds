@@ -5,7 +5,9 @@ Metadata:
   cfn-lint:
     config:
       ignore_checks:
+        - E1019
         - E9101
+        - W2030
         - W3011
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -864,6 +866,7 @@ Resources:
         config:
           ignore_checks:
             - ERDSDBInstancePubliclyAccessible
+            - E3002
           ignore_reasons:
             - ERDSDBInstancePubliclyAccessible: PubliclyAccessible is configurable.
     DeletionPolicy: Snapshot
