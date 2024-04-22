@@ -184,7 +184,7 @@ Parameters:
   DBEngineVersion:
     Description: Select Database Engine Version
     Type: String
-    Default: 15.3
+    Default: 15.4
     AllowedValues:
       - 11.16
       - 11.17
@@ -209,6 +209,7 @@ Parameters:
       - 14.8
       - 15.2
       - 15.3
+      - 15.4
   DBExportLogToCloudwatch:
     Default: ''
     Description: Specify the comma-delimited list of database logs (postgresql, upgrade) to export to CloudWatch Logs.
@@ -589,6 +590,8 @@ Mappings:
     '15.2':
       family: postgres15
     '15.3':
+      family: postgres15
+    '15.4':
       family: postgres15
 Conditions:
   CreateSecurityGroup:
